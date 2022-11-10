@@ -3,7 +3,6 @@
 /* eslint-disable prettier/prettier */
 import { View, StatusBar, Image, FlatList, Dimensions,LogBox, ScrollView, RefreshControl } from 'react-native';
 import React, {useEffect,useCallback,useState} from 'react';
-import { primaryColor } from '../config/Theme';
 import SearchBar from '../components/SearchBar';
 import FixedCategories from '../components/FixedCategories';
 import Carousel from 'react-native-banner-carousel';
@@ -13,6 +12,7 @@ import ProductCardGeneral from '../components/Cards/ProductCardGeneral';
 import { trendingProduct } from '../utils/data';
 import Divder from '../components/Divider/Divder';
 import CategoriesComponent from '../components/CategoriesComponent';
+import StaticIntenalHeader from './../components/StaticInternalHeader';
 
 const wait = (timeout) => {
     return new Promise(resolve => setTimeout(resolve, timeout));
@@ -55,7 +55,7 @@ export default function HomeScreen() {
     //
     return (
         <ScrollView refreshControl={ <RefreshControl progressViewOffset={60} refreshing={refreshing} onRefresh={onRefresh} />} stickyHeaderIndices={[1]} showsVerticalScrollIndicator={false}  style={{flex:1,backgroundColor:'#fff'}}>
-            <StatusBar backgroundColor={primaryColor} barStyle="dark-content" />
+            <StatusBar  barStyle="dark-content" />
             {/* SearchBar */}
             <SearchBar />
             {/* Top Categories */}
@@ -75,7 +75,7 @@ export default function HomeScreen() {
                 </Carousel>
             </View>
             {/* Trending Products */}
-            <IntenalHeader title="Trending Products" />
+            <IntenalHeader title="Trending" />
             <View style={{flex:1,padding:'2%',marginTop:'4%',width:'100%'}}>
                 <FlatList
                     data={trendingProduct}
@@ -89,7 +89,7 @@ export default function HomeScreen() {
             </View>
             <Divder />
             {/* Recommended Products */}
-            <IntenalHeader title="Recommended Products" />
+            <IntenalHeader title="Recommended" />
             <View style={{flex:1,padding:'2%',marginTop:'4%',width:'100%'}}>
                 <FlatList
                     data={trendingProduct}
@@ -103,7 +103,7 @@ export default function HomeScreen() {
             </View>
             <Divder />
             {/* Categories */}
-            <IntenalHeader title="Categories" />
+            <StaticIntenalHeader title="Categories" />
             <CategoriesComponent />
             <View style={{flex:1,marginTop:'4%',width:'100%'}}>
                 <FlatList

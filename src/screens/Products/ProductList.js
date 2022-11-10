@@ -1,26 +1,33 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
-import React, { useRef, useState } from 'react';
-import { primaryColor } from '../config/Theme';
-import HeaderSearch from '../components/Search/HeaderSearch';
-import ProductCardSearch from '../components/Cards/ProductCardSearch';
+import React, { useEffect,useRef,useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { trendingProduct } from '../utils/data';
+import { trendingProduct } from '../../utils/data';
 import BottomSheet from 'react-native-gesture-bottom-sheet';
+import ProductCardSearch from '../../components/Cards/ProductCardSearch';
 
-export default function Search() {
+export default function ProductList({route}) {
+    const { type } = route.params;
     const bottomSheetRef = useRef(null);
     const [sortType,setSortType] = useState(null);
     const _renderSearchItem = ({item})=>(
         <ProductCardSearch title={item.title} trendingSlogan={item.trendingSlogan} imgUrl={item.imgUrl} totalAmt={item.totalAmt} oldAmt={item.totalAmt} description={item.description} />
     );
+    const navigation = useNavigation();
+    //
+    useEffect(() => {
+      navigation.setOptions({
+        headerTitle:`${type} Products`,
+      });
+    }, [type]);
     //
     return (
         <View style={{flex:1,backgroundColor:'#fff'}}>
-            <HeaderSearch/>
             <View style={{width:'100%',flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
                 <TouchableOpacity onPress={()=>{ bottomSheetRef.current.show(); }} style={{flexDirection:'row',alignItems:'center',justifyContent:'center',borderWidth:0.5,padding:'3%',borderColor:'#BFBFBF',width:'50%'}}>
                     <FontAwesome5 color={'#303030'} name="sort-amount-down" size={18} />

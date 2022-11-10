@@ -17,6 +17,14 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import Search from './Search';
 import ProductDetails from './ProductDetails';
 import Policy from './Profile/Policy';
+import Notifications from './Profile/Notifications';
+import OrderHistory from './Profile/OrderHistory';
+import Wishlist from './Profile/Wishlist';
+import Address from './Profile/Address';
+import Contact from './Profile/Contact';
+import Deals from './Profile/Deals';
+import ProductList from './Products/ProductList';
+import ProductByCategory from './Products/ProductByCategory';
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
@@ -135,7 +143,7 @@ const HomeStackScreen = ({navigation})=>(
                 </View>
             ),
             headerRight: () => (
-                <TouchableOpacity style={{paddingRight:24}}>
+                <TouchableOpacity onPress={()=>navigation.navigate('CartScreen')} style={{paddingRight:24}}>
                     <Text style={{backgroundColor:"black",position:'absolute',zIndex:1,right:"20%",fontSize:12,color:"#fff",width:22,height:22,textAlignVertical:'center',textAlign:'center',fontFamily:"Montserrat_700Bold",borderRadius:500}}>18</Text>
                     <Ionicons name='ios-cart-outline' size={24} color='#000' />
                 </TouchableOpacity>
@@ -152,6 +160,32 @@ const HomeStackScreen = ({navigation})=>(
             headerStyle:{
                 elevation:0,
                 backgroundColor:'transparent',
+            },
+         }} />
+        <HomeStack.Screen name='ProductListScreen' component={ProductList} options={{
+            headerTitle:"",
+            headerStyle:{
+                backgroundColor:primaryColor,
+                elevation: 0, // remove shadow on Android
+                shadowOpacity: 0, // remove shadow on iOS
+            },
+            headerTitleStyle:{
+                fontFamily:"Montserrat-SemiBold",
+                fontSize:16,
+                color:'#000',
+            },
+         }} />
+        <HomeStack.Screen name='ProductByCategoryScreen' component={ProductByCategory} options={{
+            headerTitle:"",
+            headerStyle:{
+                backgroundColor:primaryColor,
+                elevation: 0, // remove shadow on Android
+                shadowOpacity: 0, // remove shadow on iOS
+            },
+            headerTitleStyle:{
+                fontFamily:"Montserrat-SemiBold",
+                fontSize:16,
+                color:'#000',
             },
          }} />
     </HomeStack.Navigator>
@@ -212,6 +246,54 @@ const ProfileStackScreen = ({navigation})=>(
         }} />
         <ProfileStack.Screen name='PolicyScreen' component={Policy} options={{
             headerTitle:"",
+            headerTitleStyle:{
+                fontFamily:"Montserrat-SemiBold",
+                fontSize:16,
+                color:'#000',
+            },
+         }} />
+        <ProfileStack.Screen name='OrderHistoryScreen' component={OrderHistory} options={{
+            headerTitle:"Orders History",
+            headerTitleStyle:{
+                fontFamily:"Montserrat-SemiBold",
+                fontSize:16,
+                color:'#000',
+            },
+         }} />
+        <ProfileStack.Screen name='WishlistScreen' component={Wishlist} options={{
+            headerTitle:"My Wishlist",
+            headerTitleStyle:{
+                fontFamily:"Montserrat-SemiBold",
+                fontSize:16,
+                color:'#000',
+            },
+         }} />
+        <ProfileStack.Screen name='DealsScreen' component={Deals} options={{
+            headerTitle:"My Offers",
+            headerTitleStyle:{
+                fontFamily:"Montserrat-SemiBold",
+                fontSize:16,
+                color:'#000',
+            },
+         }} />
+        <ProfileStack.Screen name='DAddressScreen' component={Address} options={{
+            headerTitle:"",
+            headerTitleStMyle:{
+                fontFamily:"Montserrat-SemiBold",
+                fontSize:16,
+                color:'#000',
+            },
+         }} />
+        <ProfileStack.Screen name='NotificationScreen' component={Notifications} options={{
+            headerTitle:"Notifications",
+            headerTitleStyle:{
+                fontFamily:"Montserrat-SemiBold",
+                fontSize:16,
+                color:'#000',
+            },
+         }} />
+        <ProfileStack.Screen name='ContactUScreen' component={Contact} options={{
+            headerTitle:"Contact",
             headerTitleStyle:{
                 fontFamily:"Montserrat-SemiBold",
                 fontSize:16,
