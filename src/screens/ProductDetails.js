@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable jsx-quotes */
-import {View, Text, ScrollView, Dimensions, Image, TouchableOpacity, StatusBar, TextInput} from 'react-native';
+import {View, Text, ScrollView, Dimensions, Image, TouchableOpacity, StatusBar, TextInput, FlatList} from 'react-native';
 import React,{ useEffect, useState, useRef } from 'react';
 import Carousel from 'react-native-banner-carousel';
 import { useNavigation } from '@react-navigation/native';
@@ -15,8 +15,10 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import BottomSheet from 'react-native-gesture-bottom-sheet';
 import { SimpleStepper } from 'react-native-simple-stepper';
 import { primaryColor } from './../config/Theme';
+import { trendingProduct } from '../utils/data';
 import Review from '../components/Users/Review';
 import { AirbnbRating } from 'react-native-ratings';
+import MoreProducts from '../components/Cards/MoreProducts';
 
 export default function ProductDetails() {
     const navigation = useNavigation();
@@ -24,8 +26,8 @@ export default function ProductDetails() {
     const bottomSheetColorRef = useRef(null);
     const bottomSheetReviewsRef = useRef(null);
     const [quantity,setQuantity] = useState(1);
-    const [selectedSize,setSelectedSize] = useState(null);
-    const [selectedColor,setSelectedColor] = useState(null);
+    const [selectedSize,setSelectedSize] = useState("S");
+    const [selectedColor,setSelectedColor] = useState("green");
     const renderViewMore = (onPress)=>{
         return (
           <Text style={{fontFamily:'Montserrat-Bold',color:'#03797A'}} onPress={onPress}>Read more</Text>
@@ -36,6 +38,9 @@ export default function ProductDetails() {
           <Text style={{fontFamily:'Montserrat-Bold',color:'#03797A'}} onPress={onPress}>Read less</Text>
         );
     };
+    const _renderItemProducts = ({item})=>(
+        <MoreProducts title={item.title} trendingSlogan={item.trendingSlogan} imgUrl={item.imgUrl} totalAmt={item.totalAmt} oldAmt={item.totalAmt} />
+    );
     const bannersData = [
         {
             id:1,
@@ -178,6 +183,21 @@ export default function ProductDetails() {
                         <Text style={{fontFamily:'Montserrat-SemiBold',color:'#000',textAlign:'center'}}>Submit</Text>
                     </TouchableOpacity>
                     <AirbnbRating size={18} showRating={false} />
+                </View>
+            </View>
+            {/* More Products */}
+            <View style={{width:'100%',padding:'4%',marginTop:'3%'}}>
+                <Text style={{fontFamily:'Montserrat-SemiBold',color:'#0e0e0e'}}>More Similar Products</Text>
+                <View style={{flex:1,marginVertical:'4%',width:'100%'}}>
+                    <FlatList
+                        data={trendingProduct}
+                        horizontal={true}
+                        contentContainerStyle={{ paddingRight:'20%' }}
+                        showsHorizontalScrollIndicator={false}
+                        ItemSeparatorComponent={() => <View style={{width:'2%'}} />}
+                        renderItem={_renderItemProducts}
+                        keyExtractor={item => item.id}
+                    />
                 </View>
             </View>
         </ScrollView>

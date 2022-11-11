@@ -251,6 +251,9 @@ const ProfileStackScreen = ({navigation})=>(
                 fontSize:16,
                 color:'#000',
             },
+            headerStyle:{
+                backgroundColor:primaryColor,
+            },
          }} />
         <ProfileStack.Screen name='OrderHistoryScreen' component={OrderHistory} options={{
             headerTitle:"Orders History",
@@ -258,6 +261,9 @@ const ProfileStackScreen = ({navigation})=>(
                 fontFamily:"Montserrat-SemiBold",
                 fontSize:16,
                 color:'#000',
+            },
+            headerStyle:{
+                backgroundColor:primaryColor,
             },
          }} />
         <ProfileStack.Screen name='WishlistScreen' component={Wishlist} options={{
@@ -267,6 +273,9 @@ const ProfileStackScreen = ({navigation})=>(
                 fontSize:16,
                 color:'#000',
             },
+            headerStyle:{
+                backgroundColor:primaryColor,
+            },
          }} />
         <ProfileStack.Screen name='DealsScreen' component={Deals} options={{
             headerTitle:"My Offers",
@@ -274,6 +283,9 @@ const ProfileStackScreen = ({navigation})=>(
                 fontFamily:"Montserrat-SemiBold",
                 fontSize:16,
                 color:'#000',
+            },
+            headerStyle:{
+                backgroundColor:primaryColor,
             },
          }} />
         <ProfileStack.Screen name='DAddressScreen' component={Address} options={{
@@ -283,6 +295,9 @@ const ProfileStackScreen = ({navigation})=>(
                 fontSize:16,
                 color:'#000',
             },
+            headerStyle:{
+                backgroundColor:primaryColor,
+            },
          }} />
         <ProfileStack.Screen name='NotificationScreen' component={Notifications} options={{
             headerTitle:"Notifications",
@@ -291,6 +306,9 @@ const ProfileStackScreen = ({navigation})=>(
                 fontSize:16,
                 color:'#000',
             },
+            headerStyle:{
+                backgroundColor:primaryColor,
+            },
          }} />
         <ProfileStack.Screen name='ContactUScreen' component={Contact} options={{
             headerTitle:"Contact",
@@ -298,6 +316,9 @@ const ProfileStackScreen = ({navigation})=>(
                 fontFamily:"Montserrat-SemiBold",
                 fontSize:16,
                 color:'#000',
+            },
+            headerStyle:{
+                backgroundColor:primaryColor,
             },
          }} />
     </ProfileStack.Navigator>

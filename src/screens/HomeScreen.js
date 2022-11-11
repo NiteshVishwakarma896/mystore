@@ -13,6 +13,7 @@ import { trendingProduct } from '../utils/data';
 import Divder from '../components/Divider/Divder';
 import CategoriesComponent from '../components/CategoriesComponent';
 import StaticIntenalHeader from './../components/StaticInternalHeader';
+import FullSizeCard from '../components/Cards/FullSizeCard';
 
 const wait = (timeout) => {
     return new Promise(resolve => setTimeout(resolve, timeout));
@@ -51,6 +52,9 @@ export default function HomeScreen() {
     );
     const _renderItemProducts = ({item})=>(
         <ProductCardGeneral title={item.title} trendingSlogan={item.trendingSlogan} imgUrl={item.imgUrl} totalAmt={item.totalAmt} oldAmt={item.totalAmt} description={item.description} />
+    );
+    const _renderItemFullSizeProducts = ({item})=>(
+        <FullSizeCard title={item.title} trendingSlogan={item.trendingSlogan} imgUrl={item.imgUrl} totalAmt={item.totalAmt} oldAmt={item.totalAmt} description={item.description} />
     );
     //
     return (
@@ -112,6 +116,16 @@ export default function HomeScreen() {
                     numColumns={2}
                     style={{ paddingHorizontal:'2%' }}
                     renderItem={_renderItemProducts}
+                    keyExtractor={item => item.id}
+                />
+            </View>
+            <Divder />
+            <View style={{flex:1,marginTop:'4%',width:'100%'}}>
+                <FlatList
+                    data={trendingProduct}
+                    showsVerticalScrollIndicator={false}
+                    style={{ paddingHorizontal:'2%' }}
+                    renderItem={_renderItemFullSizeProducts}
                     keyExtractor={item => item.id}
                 />
             </View>
