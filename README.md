@@ -1,3 +1,6 @@
 # mystore
 MyStore a fully functional E-Commerce mobile app, built with react native
-![Screenshot_20221020-184506_mystore](https://user-images.githubusercontent.com/45270353/222550911-76fcdb0b-bd52-4785-884e-ebda9f4cbed0.png)
+
+![Screenshot_20220727-163556_Expo Go](https://user-images.githubusercontent.com/45270353/222551806-4df4ac31-a397-41e6-b736-b776ed81a6bb.png) ![Screenshot_20220727-163604_Expo Go](https://user-images.githubusercontent.com/45270353/222551857-f6d1bd10-057f-4baf-ae41-07e61f24aca2.png)
+![Screenshot_20220727-163612_Expo Go](https://user-images.githubusercontent.com/45270353/222551905-f98652e3-b9d5-43d8-a30a-10bbb1f7fe55.png)![Screenshot_20220727-163621_Expo Go](https://user-images.githubusercontent.com/45270353/222551948-7ef1a8aa-15c5-47f1-a707-a6a441ab2e5c.png)
+![Screenshot_20220727-163621_Expo Go](https://user-images.githubusercontent.com/45270353/222551678-e290c0ce-bab1-4f84-88ad-82d1fe65a034.png)
